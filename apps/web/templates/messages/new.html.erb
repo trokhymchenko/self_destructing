@@ -1,0 +1,15 @@
+<% unless params.valid? %>
+  <div class="errors">
+    <h2>Some issue with the submission occurred</h2>
+    <ul>
+      <% params.errors.each do |m| %>
+        <li><%= m.attribute_name %> is not correct</li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for :message, '/message' do
+  text_area :text
+  submit 'Create Message'
+  end %>

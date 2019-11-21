@@ -6,3 +6,5 @@
 # get '/pages/index', to: 'pages#index'
 root to: 'pages#index'
 get '/messages/:id', to: 'messages#show'
+post '/message', to: 'messages#create'
+get '/', to: 'messages#new'
