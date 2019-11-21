@@ -1,0 +1,2 @@
+module SelfDestructing
+end
