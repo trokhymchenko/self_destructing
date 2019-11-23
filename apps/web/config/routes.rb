@@ -7,4 +7,5 @@
 root to: 'pages#index'
 get '/messages/:id', to: 'messages#show'
 post '/message', to: 'messages#create'
+post '/link', to: 'message#create'
 get '/', to: 'messages#new'
