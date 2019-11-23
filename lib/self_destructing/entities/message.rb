@@ -9,7 +9,7 @@ class Message < Hanami::Entity
 
   def time_of_destroy
     unless hours_to_destroy.nil?
-      @time_of_destroy ||= Time.now + (60 * 60 * hours_to_destroy)
+      @time_of_destroy ||= Time.now + hours_to_destroy.hours
     end
   end
 
@@ -18,7 +18,7 @@ class Message < Hanami::Entity
   end
 
   def destroyed?
-    text == ''
+    text.blank?
   end
 
 end

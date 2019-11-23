@@ -1,6 +1,7 @@
 module SelfDestructing
   require 'hanami/model'
   require 'hanami/mailer'
+  require 'core_ext/integer'
   Dir["#{ __dir__ }/self_destructing/**/*.rb"].each { |file| require_relative file }
   Hanami::Model.configure do
 

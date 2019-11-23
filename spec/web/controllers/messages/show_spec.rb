@@ -1,9 +1,20 @@
 RSpec.describe Web::Controllers::Messages::Show, type: :action do
   let(:action) { described_class.new }
-  let(:params) { Hash[] }
+  let(:message) { MessageRepository.create(Message.new(text: 'New message!', visits_limit: 2))}
+  let(:params) { Hash[url: message.url] }
+
+  before do
+    MessageRepository.clear
+  end
 
   it 'is successful' do
     response = action.call(params)
     expect(response[0]).to eq 200
+  end
+
+  it 'is failure' do
+    params.merge!(url: message.url[0..8])
+    response = action.call(params)
+    expect(response[0]).to eq 404
   end
 end

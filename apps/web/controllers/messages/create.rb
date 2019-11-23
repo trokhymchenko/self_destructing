@@ -28,7 +28,7 @@ module Web
             @message = MessageRepository.create(Message.new(params[:message]))
             self.body = render 'create.html.erb'
           else
-            halt 404, "Link is wrong!"
+            self.status = 422
         end
       end
 
