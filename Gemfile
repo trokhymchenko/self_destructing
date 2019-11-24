@@ -8,6 +8,7 @@ gem 'hanami-model', '~> 1.3'
 gem 'pg'
 gem "core_ext"
 gem 'sidekiq'
+gem 'puma'
 
 group :development do
   # Code reloading
@@ -29,5 +30,5 @@ group :test do
 end
 
 group :production do
-  gem 'puma'
+  #gem 'puma'
 end
