@@ -1,7 +1,6 @@
 /db/*.sqlite
 /public/assets*
 /tmp
-/log/*
 *.rdb
 /.env.
 .env.local

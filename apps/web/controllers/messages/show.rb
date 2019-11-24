@@ -7,14 +7,13 @@ module Web
         expose :message
 
         def call(params)
-          if @message = MessageRepository.find_by_url(params[:url])
+          if @message = MessageRepository.new.find_by_url(params[:url])
             if message.viewed?
-            MessageRepository.delete(message)
+            MessageRepository.new.delete(message)
               link_is_wrong
             else
-              message.visits_count += 1
+              MessageRepository.new.update(message.id, visits_count: message.visits_count + 1)
             end
-            MessageRepository.update(message)
           else
             link_is_wrong
           end

@@ -1,9 +1,12 @@
+require 'spec_helper'
+require_relative '../../../../apps/web/controllers/messages/create'
+
 RSpec.describe Web::Controllers::Messages::Create, type: :action do
   let(:action) { described_class.new }
   let(:params) { Hash[] }
 
   before do
-    MessageRepository.clear
+    MessageRepository.new.clear
   end
 
   context 'when not valid params' do

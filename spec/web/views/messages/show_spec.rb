@@ -1,3 +1,5 @@
+require_relative '../../../../apps/web/views/messages/show'
+
 RSpec.describe Web::Views::Messages::Show, type: :view do
   let(:exposures) { Hash[format: :html] }
   let(:template)  { Hanami::View::Template.new('apps/web/templates/messages/show.html.erb') }

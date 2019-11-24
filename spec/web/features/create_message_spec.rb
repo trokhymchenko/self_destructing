@@ -2,10 +2,10 @@ require 'features_helper'
 
 feature 'Create message' do
   after do
-    MessageRepository.clear
+    MessageRepository.new.clear
   end
 
-  given(:message) { MessageRepository.first }
+  given(:message) { MessageRepository.new.first }
 
   scenario  'Create message without text' do
     visit '/'

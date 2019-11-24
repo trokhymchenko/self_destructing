@@ -1,10 +1,10 @@
 class ExpiredWorker
-  include Sidekiq::Wordker
+  include Sidekiq::Worker
 
   def perform
-    messages = MessageRepository.expired
+    messages = MessageRepository.new.expired
     messages.each do |m|
-      MessageRepository.delete(m)
+      MessageRepository.new.delete(m.id)
     end
   end
 end

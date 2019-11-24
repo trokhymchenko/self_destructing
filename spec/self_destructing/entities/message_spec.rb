@@ -1,13 +1,13 @@
-require 'core_ext/integer'
+require 'spec_helper'
 
 RSpec.describe Message, type: :entity do
   # place your tests here
   let(:message) { Message.new(text: 'New message!', hours_to_destroy: 2, visits_limit: 2) }
-  let(:record) { MessageRepository.create(message) }
+  let(:record) { MessageRepository.new.create(message) }
   let(:time) { Time.now }
 
   before do
-    MessageRepository.clear
+    MessageRepository.new.clear
     Timecop.freeze(time)
   end
 
@@ -28,7 +28,7 @@ RSpec.describe Message, type: :entity do
 
   describe '#time_of_destroy' do
    it 'sets time of destroy message' do
-     expect(record.time_of_destroy).to eq Time.now + record.hours_to_destroy.hours
+     expect(record.time_of_destroy.to_i).to eq time.to_i + record.hours_to_destroy.hours
   end
  end
 end
