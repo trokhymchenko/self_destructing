@@ -4,4 +4,10 @@ class MessageRepository < Hanami::Repository
       where(url: url)
     end.first
   end
+
+  def self.expired
+    query do
+      where { time_of_destroy <= Time.now }
+    end.all
+  end
 end

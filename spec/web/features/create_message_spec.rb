@@ -25,6 +25,7 @@ feature 'Create message' do
     fill_in 'Text', with: 'Some text'
     fill_in 'Visits limit', with: 2
     fill_in 'Password', with: 'password'
+    page.all("input[id='message-encrypted']", visible: false).first.set('true')
     click_button 'Create Message'
     expect(page).to have_content("/messages/#{message.url}")
   end

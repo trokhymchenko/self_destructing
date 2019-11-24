@@ -16,9 +16,4 @@ class Message < Hanami::Entity
   def viewed?
     visits_count == visits_limit
   end
-
-  def destroyed?
-    text.blank?
-  end
-
 end

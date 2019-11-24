@@ -4,6 +4,7 @@ function encode()
   var message = document.getElementById('message-text').value;
   var encrypted = CryptoJS.AES.encrypt(message, secret);
   document.getElementById("message-text").value = encrypted;
+  document.getElementById("message-encrypted").value = 'true';
 }
 
 function decode()

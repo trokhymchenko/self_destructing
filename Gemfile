@@ -7,6 +7,7 @@ gem 'hanami-model', '~> 1.3'
 # gem 'sqlite3'
 gem 'pg'
 gem "core_ext"
+gem 'sidekiq'
 
 group :development do
   # Code reloading

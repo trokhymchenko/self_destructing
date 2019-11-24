@@ -8,8 +8,8 @@ module Web
 
         def call(params)
           if @message = MessageRepository.find_by_url(params[:url])
-            message.text = '' if message.viewed?
-            if message.destroyed?
+            if message.viewed?
+            MessageRepository.delete(message)
               link_is_wrong
             else
               message.visits_count += 1

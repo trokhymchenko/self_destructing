@@ -6,7 +6,7 @@ feature 'Create message' do
   end
 
   given(:message) do
-    MessageRepository.create(Message.new(text: 'New message!', visits_limit: 2))
+    MessageRepository.create(Message.new(text: 'New message!', visits_limit: 2, password: 'password'))
   end
 
   scenario 'User can show existing message' do

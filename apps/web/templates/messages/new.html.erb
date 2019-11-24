@@ -10,7 +10,7 @@
 <% end %>
 
 <%= form_for :message, '/link' do
-  hidden_field '_csrf_token', value: csrf_token
+    hidden_field '_csrf_token'
   div class: 'heading' do
     h3 'Enter a Message'
   end
@@ -23,6 +23,8 @@
     text_field :password, class: 'form-control'
     button     'Encrypt', onclick: 'encode();', type: "button"
     end
+    div class: 'input' do
+      hidden_field :encrypted
     div do
     h3 'Options to select for destroy message'
   end
