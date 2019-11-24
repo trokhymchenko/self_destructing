@@ -10,8 +10,9 @@ module Web
         validations do
           required(:text) { filled? & str? }
           params do
-            require(:message).schema do
-              require(:text).filled
+            required(:message).schema do
+              required(:text).filled
+              required(:password).filled(min_size?: 3)
               optional(:hours_to_destroy).maybe(:int?)
               optional(:visits_limit).maybe(:int?)
 

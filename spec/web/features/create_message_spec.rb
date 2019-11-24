@@ -24,7 +24,8 @@ feature 'Create message' do
     visit '/'
     fill_in 'Text', with: 'Some text'
     fill_in 'Visits limit', with: 2
+    fill_in 'Password', with: 'password'
     click_button 'Create Message'
     expect(page).to have_content("/messages/#{message.url}")
   end
-end 
+end

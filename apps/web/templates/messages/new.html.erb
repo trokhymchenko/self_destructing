@@ -12,19 +12,26 @@
 <%= form_for :message, '/link' do
   hidden_field '_csrf_token', value: csrf_token
   div class: 'heading' do
-    <h1>'Add New Message'</h1>
+    h3 'Enter a Message'
   end
   div class: 'input' do
-    label :text
+    label     :text
     text_area :text, class: 'form-control'
   end
-
   div class: 'input' do
-    label :hours_to_destroy
+    label      :password
+    text_field :password, class: 'form-control'
+    button     'Encrypt', onclick: 'encode();', type: "button"
+    end
+    div do
+    h3 'Options to select for destroy message'
+  end
+  div class: 'input' do
+    label        :hours_to_destroy
     number_field :hours_to_destroy
   end
   div class: 'input' do
-    label :visits_limit
+    label        :visits_limit
     number_field :visits_limit
   end
   submit 'Create Message'
